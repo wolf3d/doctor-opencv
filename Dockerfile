@@ -9,6 +9,6 @@ RUN apt-get update && apt-get install -y \
     libxvidcore-dev libx264-dev \
     libgtk2.0-dev \
     libatlas-base-dev gfortran \
-    python2.7-dev python3-dev \
+    python2.7-dev python3-dev wget curl unzip \
 
 #vim:ts=4
