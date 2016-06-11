@@ -1,14 +1,17 @@
 # Pull base image
 FROM debian:jessie
 
+# hackish way to install libjpeg8-dbg into jessie
+RUN echo "deb http://archive.debian.org/debian squeeze main" >> /etc/apt/sources.list
+
 # Update packages
 RUN apt-get clean -y && \
     apt-get autoclean -y && \
-    apt-get autoremove -y  && \
+    apt-get autoremove -y && \
 
     apt-get update && apt-get install -y \
     build-essential cmake pkg-config \
-    apt-get install libgtk2.0-dev python-dev python-numpy \
+    libgtk2.0-dev python-dev python-numpy \
     libpng12-0 libpng12-dev libpng++-dev libpng3 libpnglite-dev \
     libpngwriter0-dev libpngwriter0c2 zlib1g-dbg zlib1g zlib1g-dev \
     pngtools libjasper-dev libjasper-runtime libjasper1 libjpeg8 \
