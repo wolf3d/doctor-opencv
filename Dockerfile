@@ -2,7 +2,7 @@
 FROM debian:jessie
 
 
-RUN echo "deb http://ftp.us.debian.org/debian debian-jessie main" > /etc/apt/sources.list
+RUN echo "deb http://ftp.pl.debian.org/debian jessie main" > /etc/apt/sources.list
 
 # Update packages
 RUN apt-get clean -y && \
