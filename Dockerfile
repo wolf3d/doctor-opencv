@@ -1,6 +1,9 @@
 # Pull base image
 FROM debian:jessie
 
+
+RUN echo "http://ftp.us.debian.org/debian debian-jessie main" > /etc/apt/sources.list
+
 # Update packages
 RUN apt-get clean -y && \
     apt-get autoclean -y && \
