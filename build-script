@@ -13,5 +13,12 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.1.0/modules \
 -D BUILD_EXAMPLES=ON ..
 
-make -j4 && make install && ldconfig && ls -l /usr/local/lib/python2.7/site-packages/ && make clean
-#cd ../../ && rm -fr opencv-3.1.0 opencv_contrib-3.1.0
+echo "------------------------------------------------------------"
+make -j4 && make install 
+echo "------------------------------------------------------------"
+ldconfig 
+echo "------------------------------------------------------------"
+ls -l /usr/local/lib/python2.7/site-packages/ 
+echo "------------------------------------------------------------"
+make clean
+cd ../../ && rm -fr opencv-3.1.0 opencv_contrib-3.1.0
