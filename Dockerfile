@@ -7,24 +7,11 @@ RUN echo "deb http://ftp.pl.debian.org/debian jessie main" > /etc/apt/sources.li
 # Update packages
 RUN apt-get clean -y && \
     apt-get autoclean -y && \
-    apt-get autoremove -y 
+    apt-get autoremove -y && \
+    apt-get update && apt-get install -y git 
 
-RUN apt-get update && apt-get install -y \
-    build-essential cmake pkg-config \
-    libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev \
-    libgtk2.0-dev openexr libopenexr6 libopenexr-dev \
-    libatlas-base-dev gfortran \
-    libtbb2 libtbb-dev zlib1g-dbg zlib1g zlib1g-dev \
-    python2.7-dev python3-dev wget curl unzip bzip2 && \
-    wget https://bootstrap.pypa.io/get-pip.py && python2.7 get-pip.py && \
-    pip install numpy
-
-RUN apt-get clean -y && \
-    apt-get autoclean -y && \
-    apt-get autoremove -y
-
-ADD build-script /build-script
-
-RUN /bin/sh /build-script
+RUN git clone https://github.com/wolf3d/debian-scripts.git && \
+    cd debian-scripts && git checkout -b wip && git pull origin wip && \
+    chmod +x ./bootstrap-opencv && ./bootstrap-opencv
 
 #vim:ts=4
