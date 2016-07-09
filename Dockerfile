@@ -10,7 +10,7 @@ RUN apt-get clean -y && \
     apt-get autoremove -y && \
     apt-get update && apt-get install -y git && \
     git clone https://github.com/wolf3d/debian-scripts.git && \
-    cd debian-scripts && git checkout -b testing && git pull origin testing && \
+    cd debian-scripts && \
     chmod +x ./bootstrap-opencv && ./bootstrap-opencv
 
 #vim:ts=4
